@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
+// using System.Collections.Generic.List
 
 namespace linqexercise
 {
@@ -28,7 +29,40 @@ namespace linqexercise
                 15, 8, 21, 24, 32, 13, 30, 12, 7, 54, 48, 4, 49, 96
             };
 
-            // IEnumerable<int> fourSixMultiples = numbers.Where();
+            IEnumerable<int> fourSixMultiples = numbers.Where(n => n % 4 == 0 || n % 6 == 0);
+            {
+                foreach(int n in fourSixMultiples)
+                {
+                    Console.WriteLine($"{n}");
+                }
+                
+            }
+
+            // Order these student names alphabetically, in descending order (Z to A)
+            List<string> names = new List<string>()
+            {
+                "Heather", "James", "Xavier", "Michelle", "Brian", "Nina",
+                "Kathleen", "Sophia", "Amir", "Douglas", "Zarley", "Beatrice",
+                "Theodora", "William", "Svetlana", "Charisse", "Yolanda",
+                "Gregorio", "Jean-Paul", "Evangelina", "Viktor", "Jacqueline",
+                "Francisco", "Tre"
+            };
+
+                // List<string> descend = new List<string>();
+
+                IEnumerable<string> descend = (from name in names
+                    orderby name descending
+                    select name).ToList();
+
+            {
+                foreach(string n in descend)
+                {
+                    Console.WriteLine($"{n}");
+                }
+                
+            }
+
+
         }
     }
 }
