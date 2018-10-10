@@ -1,0 +1,11 @@
+/Users/helen/workspace/csharp/exercises/linqexercise/obj/Debug/netcoreapp2.1/linqexercise.csprojAssemblyReference.cache
+/Users/helen/workspace/csharp/exercises/linqexercise/obj/Debug/netcoreapp2.1/linqexercise.csproj.CoreCompileInputs.cache
+/Users/helen/workspace/csharp/exercises/linqexercise/obj/Debug/netcoreapp2.1/linqexercise.AssemblyInfoInputs.cache
+/Users/helen/workspace/csharp/exercises/linqexercise/obj/Debug/netcoreapp2.1/linqexercise.AssemblyInfo.cs
+/Users/helen/workspace/csharp/exercises/linqexercise/bin/Debug/netcoreapp2.1/linqexercise.deps.json
+/Users/helen/workspace/csharp/exercises/linqexercise/bin/Debug/netcoreapp2.1/linqexercise.runtimeconfig.json
+/Users/helen/workspace/csharp/exercises/linqexercise/bin/Debug/netcoreapp2.1/linqexercise.runtimeconfig.dev.json
+/Users/helen/workspace/csharp/exercises/linqexercise/bin/Debug/netcoreapp2.1/linqexercise.dll
+/Users/helen/workspace/csharp/exercises/linqexercise/bin/Debug/netcoreapp2.1/linqexercise.pdb
+/Users/helen/workspace/csharp/exercises/linqexercise/obj/Debug/netcoreapp2.1/linqexercise.dll
+/Users/helen/workspace/csharp/exercises/linqexercise/obj/Debug/netcoreapp2.1/linqexercise.pdb
