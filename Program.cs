@@ -18,7 +18,7 @@ namespace linqexercise
 
             foreach (string LF in LFruits)
         {
-            Console.WriteLine($"{LF}");
+            // Console.WriteLine($"{LF}");
         }
 
 
@@ -33,7 +33,7 @@ namespace linqexercise
             {
                 foreach(int n in fourSixMultiples)
                 {
-                    Console.WriteLine($"{n}");
+                    // Console.WriteLine($"{n}");
                 }
                 
             }
@@ -48,20 +48,34 @@ namespace linqexercise
                 "Francisco", "Tre"
             };
 
-                // List<string> descend = new List<string>();
+                List<string> descend = names.OrderByDescending(n => n).ToList();
 
-                IEnumerable<string> descend = (from name in names
-                    orderby name descending
-                    select name).ToList();
+            //     IEnumerable<string> descend = (from name in names
+            //         orderby name descending
+            //         select name).ToList();
 
             {
                 foreach(string n in descend)
                 {
-                    Console.WriteLine($"{n}");
+                    // Console.WriteLine($"{n}");
                 }
                 
             }
 
+            // Build a collection of these numbers sorted in ascending order
+            List<int> numbers2 = new List<int>()
+            {
+                15, 8, 21, 24, 32, 13, 30, 12, 7, 54, 48, 4, 49, 96
+            };
+
+            IEnumerable<int> collection = from A in numbers2
+            orderby A ascending
+            select A;
+
+            foreach (int A in collection)
+        {
+            Console.WriteLine($"{A}");
+        }
 
         }
     }
