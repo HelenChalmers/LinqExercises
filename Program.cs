@@ -5,6 +5,12 @@ using System.Collections.Generic;
 
 namespace linqexercise
 {
+    public class Bank
+{
+    public string Symbol { get; set; }
+    public string Name { get; set; }
+}
+
 
     public class Customer
 {
@@ -158,6 +164,17 @@ namespace linqexercise
         {
             Console.WriteLine($"{AB.Name} has a Balance of {AB.Balance}");
         }
+
+        /*
+            Given the same customer set, display how many millionaires per bank.
+            Ref: https://stackoverflow.com/questions/7325278/group-by-in-linq
+
+                Example Output:
+                WF 2
+                BOA 1
+                FTB 1
+                CITI 1
+        */
  Console.WriteLine("------------------------");
 
         var millionaires2 = from mill in customers
@@ -173,28 +190,61 @@ namespace linqexercise
             Console.WriteLine($"{bank.ReportBank}: {bank.MillPerBank}");
         }
 
-            //  //dealing with kids list
-            //     group customer by customer.Bank into BankGroup
-            // //now dealing with neighborhoodGroup list
-            //     select new SalesReportEntry {
-            //         ReportNeighborhood = neighborhoodGroup.Key, 
-            //         ReportTotalSales = neighborhoodGroup.Sum(kidObj => kidObj.Sales)
-            //     }).OrderByDescending(sr => sr.ReportTotalSales).ToList();
+        Console.WriteLine("----------------------------------------");
 
+            
+
+
+        
+// ------------------------------------------------------------------------------------------------------
+
+
+
+        // Introduction to Joining Two Related Collections
+        // Create some banks and store in a List
+        List<Bank> banks = new List<Bank>() {
+            new Bank(){ Name="First Tennessee", Symbol="FTB"},
+            new Bank(){ Name="Wells Fargo", Symbol="WF"},
+            new Bank(){ Name="Bank of America", Symbol="BOA"},
+            new Bank(){ Name="Citibank", Symbol="CITI"},
+        };
 
         /*
-            Given the same customer set, display how many millionaires per bank.
-            Ref: https://stackoverflow.com/questions/7325278/group-by-in-linq
+    TASK:
+    As in the previous exercise, you're going to output the millionaires,
+    but you will also display the full name of the bank. You also need
+    to sort the millionaires' names, ascending by their LAST name.
 
-                Example Output:
-                WF 2
-                BOA 1
-                FTB 1
-                CITI 1
+    Example output:
+        Tina Fey at Citibank
+        Joe Landy at Wells Fargo
+        Sarah Ng at First Tennessee
+        Les Paul at Wells Fargo
+        Peg Vale at Bank of America
+*/
+/*
+            You will need to use the `Where()`
+            and `Select()` methods to generate
+            instances of the following class.
+
+            public class ReportItem
+            {
+                public string CustomerName { get; set; }
+                public string BankName { get; set; }
+            }
         */
+        List<Customer> millionaireReport = customers.Where(n => n.Balance >= 1_000_000).OrderBy(n => n.Name.Split(" ")[1]).Select(c => new Customer()
+        {
+            Name = c.Name,
+            Bank = banks.Find(BankId => BankId.Symbol == c.Bank).Name,
+            Balance = c.Balance
 
-
-
+        }).ToList();
+        
+        foreach (Customer customer in millionaireReport)
+            {
+                Console.WriteLine($"{customer.Name} at {customer.Bank}");
+            }
 
 }
 
